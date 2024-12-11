@@ -1,0 +1,27 @@
+openapi: 3.0.1
+info:
+  title: SOAP Hello World API
+  description: A simple SOAP API that returns a greeting.
+  version: 1.0.0
+paths:
+  /sayHello:
+    post:
+      summary: Greet a person
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Juan"
+      responses:
+        '200':
+          description: Response with the greeting
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Hello, Juan"
