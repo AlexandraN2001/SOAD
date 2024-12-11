@@ -1,7 +1,7 @@
 <?php
 $options = [
     'location' => "http://soap-server:8000/soap-server.php",
-    'uri' => "http://soap-server/soap",
+    'uri' => "http://soap-server:8000",
     'trace' => 1,  
     'exceptions' => true, 
 ];
@@ -12,4 +12,4 @@ try {
     echo $response;  // It should display "Hello, World"
 } catch (SoapFault $e) {
     echo "Error: " . $e->getMessage();
-}  
+}

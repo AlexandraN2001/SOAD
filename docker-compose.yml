@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  soap-server:
+    build: .
+    container_name: soap-server
+    ports:
+      - "8000:8000"
+    networks:
+      - soap-network
+    volumes:
+      - .:/var/www/html
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "/var/www/html"]
+  
+  soap-client:
+    build: .
+    container_name: soap-client
+    networks:
+      - soap-network
+    volumes:
+      - .:/var/www/html
+    command: ["php", "/var/www/html/soap-client.php"]
+
+networks:
+  soap-network:
+    driver: bridge 
